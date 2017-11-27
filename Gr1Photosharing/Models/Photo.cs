@@ -9,6 +9,7 @@ namespace Gr1Photosharing.Models
 {
     public class Photo
     {
+        private string _userName;
         public int PhotoID { get; set; }
         public string Title { get; set; }
 
@@ -20,7 +21,13 @@ namespace Gr1Photosharing.Models
         [DisplayName("Created Date")]
         [DisplayFormat(DataFormatString = "{0: dd-MM-yy")]
         public DateTime CreatedDate { get; set; }
-        public string UserName { get; set; }
+
+        public string UserName
+        {
+            get { return _userName; }
+            set { _userName = value; }
+        }
+
         public virtual ICollection<Comment> Comments { get; set; }
     }
 }
